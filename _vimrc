@@ -1,47 +1,56 @@
+"""" プラグインのセットアップ
+call plug#begin('~/.vim/plugged')
+
+Plug 'nathanaelkane/vim-indent-guides' " インデントに色を付けて見やすくする
+
+call plug#end()
+
+""" プラグインの設定
+"" vim-indent-guidsの設定
+let g:indent_guides_enable_on_vim_startup = 1 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_auto_colors=0 " 自動カラーを無効にする
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#3c3c3c ctermbg=darkgray " 奇数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=gray " 偶数インデントのカラー
+
 """ release autogroup in MyAutoCmd
 augroup MyAutoCmd
     autocmd!
 augroup END
 
 """ 表示関係
-set t_Co=256
-set background=dark
-colorscheme hybrid
-syntax on
-set list                " 不可視文字の可視化
-set listchars=tab:»-,trail:-
-set number              " 行番号の表示
-set ruler               " カーソル位置が右下に表示される
-set wildmenu            " コマンドライン補完が強力になる
-set showcmd             " コマンドを画面の最下部に表示する
-set nowrap                " 自動折り返しを無効化
-set textwidth=0         " 自動的に改行が入るのを無効化
-" 前時代的スクリーンベルを無効化
-set t_vb=
-set novisualbell
-set foldmethod=indent    " 折り畳み
-set foldlevel=100    " ファイルを開くときに折り畳みをしない
+set t_Co=256 " 256色対応
+set background=dark " 背景を黒くする
+colorscheme hybrid " カラーテーマ設定
+syntax on " syntaxを有効化
+set list " 不可視文字の可視化
+set listchars=tab:»-,trail:- " 可視化する不可視文字の設定
+set number " 行番号の表示
+set ruler " カーソル位置が右下に表示される
+set wildmenu " コマンドライン補完が強力になる
+set showcmd " コマンドを画面の最下部に表示する
+set nowrap " 自動折り返しを無効化
+set textwidth=0 " 自動的に改行が入るのを無効化
+set t_vb= " Beep音を無効化
+set novisualbell "Beep音を無効化
+set foldmethod=indent " 折り畳み単位の設定
+set foldlevel=100 " ファイルを開くときに折り畳みをしない
 
 """ 編集関係
-set infercase           " 補完時に大文字小文字を区別しない
-set virtualedit=all     " カーソルを文字が存在しない部分でも動けるようにする
-set hidden              " バッファを閉じる代わりに隠す（Undo履歴を残すため）
-set switchbuf=useopen   " 新しく開く代わりにすでに開いてあるバッファを開く
-set showmatch           " 対応する括弧などをハイライト表示する
-set matchtime=3         " 対応括弧のハイライト表示を3秒にする
-set autoindent          " 改行時にインデントを引き継いで改行する
-set shiftwidth=2        " インデントにつかわれる空白の数
-au BufNewFile,BufRead *.yml set shiftwidth=2
-set softtabstop=2       " <Tab>押下時の空白数
-set expandtab           " <Tab>押下時に<Tab>ではなく、ホワイトスペースを挿入する
-set tabstop=2           " <Tab>が対応する空白の数
-au BufNewFile,BufRead *.yml set tabstop=2
-set shiftround          " '<'や'>'でインデントする際に'shiftwidth'の倍数に丸める
-set nf=                 " インクリメント、デクリメントを10進数にする
-" 対応括弧に'<'と'>'のペアを追加
-set matchpairs& matchpairs+=<:>
-" バックスペースでなんでも消せるようにする
-set backspace=indent,eol,start
+set infercase " 補完時に大文字小文字を区別しない
+set virtualedit=all " カーソルを文字が存在しない部分でも動けるようにする
+set hidden " バッファを閉じる代わりに隠す（Undo履歴を残すため）
+set switchbuf=useopen " 新しく開く代わりにすでに開いてあるバッファを開く
+set showmatch " 対応する括弧などをハイライト表示する
+set matchtime=3 " 対応括弧のハイライト表示を3秒にする
+set autoindent " 改行時にインデントを引き継いで改行する
+set shiftwidth=2 " インデントにつかわれる空白の数
+set softtabstop=2 " <Tab>押下時の空白数
+set expandtab " <Tab>押下時に<Tab>ではなく、ホワイトスペースを挿入する
+set tabstop=2 " <Tab>が対応する空白の数
+set shiftround " '<'や'>'でインデントする際に'shiftwidth'の倍数に丸める
+set nf= " インクリメント、デクリメントを10進数にする
+set matchpairs& matchpairs+=<:> " 対応括弧に'<'と'>'のペアを追加
+set backspace=indent,eol,start " バックスペースでなんでも消せるようにする
 " クリップボードをデフォルトのレジスタとして指定。後にYankRingを使うので
 " 'unnamedplus'が存在しているかどうかで設定を分ける必要がある
 if has('unnamedplus')
@@ -55,15 +64,15 @@ set nobackup
 set noswapfile
 
 """ 検索関係
-set ignorecase          " 大文字小文字を区別しない
-set smartcase           " 検索文字に大文字がある場合は大文字小文字を区別
-set incsearch           " インクリメンタルサーチ
-set hlsearch            " 検索マッチテキストをハイライト
+set ignorecase " 大文字小文字を区別しない
+set smartcase " 検索文字に大文字がある場合は大文字小文字を区別
+set incsearch " インクリメンタルサーチ
+set hlsearch " 検索マッチテキストをハイライト
 " バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
-""" マクロおよびキー設定
+""" キー設定
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 " カーソル下の単語を * で検索
@@ -73,6 +82,8 @@ nnoremap gk gg
 nnoremap gj G
 nnoremap gl $
 nnoremap gh ^
+vnoremap gl $
+vnoremap gh ^
 " 分割
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
@@ -98,25 +109,17 @@ nnoremap k gk
 nnoremap <Tab> %
 vnoremap <Tab> %
 inoremap jj <C-c>
-" [ と打ったら [] って入力されてしかも括弧の中にいる(以下同様)
+" [ と打ったら [] って入力されて括弧の中にいる(以下同様)
 inoremap [ []<left>
 inoremap ( ()<left>
 inoremap { {}<left>
 inoremap " ""<left>
 inoremap ' ''<left>
-" Ctrl + hjkl でウィンドウ間を移動
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-" Shift + 矢印でウィンドウサイズを変更
-nnoremap <S-Left>  <C-w><<CR>
-nnoremap <S-Right> <C-w>><CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
 " タブ間の移動
 nnoremap <C-n> gt
 nnoremap <C-p> gT
+
+""" マクロ
 " :e などでファイルを開く際にフォルダが存在しない場合は自動作成
 function! s:mkdir(dir, force)
   if !isdirectory(a:dir) && (a:force ||
@@ -146,3 +149,4 @@ if has('vim_starting')
     " 置換モード時に非点滅の下線タイプのカーソル
     let &t_SR .= "\e[4 q"
 endif
+
