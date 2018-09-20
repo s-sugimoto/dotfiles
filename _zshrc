@@ -1,0 +1,41 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+# global alias
+alias -g @g='| grep'
+alias -g @cp='| pbcopy'
+
+# alias common
+alias v='vim'
+alias vi='vim'
+alias vr='vim -R'
+alias vz='vim ~/.zshrc'
+alias vv='vim ~/.vimrc'
+alias sz='source ~/.zshrc'
+alias cl='clear'
+alias ls='ls -lhGA'
+alias ll='ls'
+alias fcn='find ./ -name'
+alias handson='cd ~/works/dbflute/workspace/dbflute-hands-on'
+alias cms='cd /Users/s-sugimoto/projects/cms/workspace/CMS'
+alias cp-usersservice='cd /Users/s-sugimoto/projects/cp-usersservice/workspace/CP-usersservice'
+alias mysqlstart='mysql.server start'
+alias mysqlstop='mysql.server stop'
+alias mgcms='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_cmsdb/manage.sh'
+alias mghls='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_hlsdb/manage.sh'
+alias mgwidevine='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_widevinedb/manage.sh'
+alias mghlsaes='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_hlsaesdb/manage.sh'
+alias mghlsis='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_hlsisdb/manage.sh'
+alias mgsmooth='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_smoothdb/manage.sh'
+
