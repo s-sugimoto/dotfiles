@@ -40,3 +40,5 @@ alias mghlsaes='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflu
 alias mghlsis='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_hlsisdb/manage.sh'
 alias mgsmooth='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_smoothdb/manage.sh'
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

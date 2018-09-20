@@ -9,7 +9,8 @@ Plug 'plasticboy/vim-markdown' " markdown補助
 Plug 'godlygeek/tabular' " markdownの表整形
 Plug 'airblade/vim-gitgutter' " git差分を視覚化
 Plug 'tpope/vim-fugitive' " gitコマンドをvimから実行する
-Plug 'junegunn/fzf.vim' " ファジーなファイル検索
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
