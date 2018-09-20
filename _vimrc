@@ -2,6 +2,13 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'nathanaelkane/vim-indent-guides' " インデントに色を付けて見やすくする
+Plug 'tpope/vim-surround' " かっこ入力補助
+Plug 'bronson/vim-trailing-whitespace' " 行末の空白を強調する
+Plug 'terryma/vim-multiple-cursors' " カーソルを分裂させる
+Plug 'plasticboy/vim-markdown' " markdown補助
+Plug 'godlygeek/tabular' " markdownの表整形
+Plug 'airblade/vim-gitgutter' " git差分を視覚化
+Plug 'tpope/vim-fugitive' " gitコマンドをvimから実行する
 
 call plug#end()
 
