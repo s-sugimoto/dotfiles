@@ -9,8 +9,10 @@ Plug 'plasticboy/vim-markdown' " markdown補助
 Plug 'godlygeek/tabular' " markdownの表整形
 Plug 'airblade/vim-gitgutter' " git差分を視覚化
 Plug 'tpope/vim-fugitive' " gitコマンドをvimから実行する
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -117,16 +119,11 @@ nnoremap k gk
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
+" 簡単にinsertモードを終了する
 inoremap jj <C-c>
-" [ と打ったら [] って入力されて括弧の中にいる(以下同様)
-inoremap [ []<left>
-inoremap ( ()<left>
-inoremap { {}<left>
-inoremap " ""<left>
-inoremap ' ''<left>
-" タブ間の移動
-nnoremap <C-n> gt
-nnoremap <C-p> gT
+" 検索
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <C-p> :FzfGFiles <Enter>
 
 """ マクロ
 " :e などでファイルを開く際にフォルダが存在しない場合は自動作成
