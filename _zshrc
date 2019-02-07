@@ -29,6 +29,7 @@ alias sz='source ~/.zshrc'
 alias cl='clear'
 alias ls='ls -lhGA'
 alias ll='ls'
+alias grep='ggrep --color'
 ## git command
 alias g='git'
 alias ga='git add .'
@@ -37,20 +38,43 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gd='git diff'
 alias gcm='git commit -m'
-alias gcma='git commit -a -m'
+alias gcma='ga && gcm'
 alias gps='git push origin'
 alias gpl='git pull origin'
 alias gst='git status'
 alias gl='git log'
 alias glg='git log --graph --date=short --decorate=short --pretty=format:"%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s"'
 alias glp='git log -p'
+# git branch delete confirm
+alias gbdc="git branch --merged master | grep -v -e master -e develop -e 'alter*' -e config -e 'master*' | sed -e 's% *origin/%%' | xargs -I echo"
+# git branch delete execute
+alias gbde="git branch --merged master | grep -v -e master -e develop -e 'alter*' -e config -e 'master*' | xargs -I% git branch -d %"
 ## mysql
 alias mysqlstart='mysql.server start'
 alias mysqlstop='mysql.server stop'
+alias localsql='mysql -h localhost -u root'
+alias itsql='mysql -h 10.105.103.242 -u gyao -p'
+alias prodsql='mysql -h 10.105.22.207 -u gyao -p'
+alias usersprodsql='mysql -h 10.105.22.208 -u readuser -p'
 ## in unext
 alias handson='cd ~/works/dbflute/workspace/dbflute-hands-on'
 alias cms='cd /Users/s-sugimoto/projects/cms/workspace/CMS'
+alias ucms='cd /Users/s-sugimoto/projects/unextcms/workspace/UNextCMS'
+alias lcms='cd /Users/s-sugimoto/projects/lcms/workspace/LCMS'
 alias cp-usersservice='cd /Users/s-sugimoto/projects/cp-usersservice/workspace/CP-usersservice'
+alias play-angular-template='cd /Users/s-sugimoto/projects/play-angular-template/workspace/play-angular-template'
+alias cms-tool='cd /Users/s-sugimoto/projects/cms-tool/workspace/cms-tool'
+alias laxample='cd /Users/s-sugimoto/projects/laxample/workspace/laxample'
+alias batch-start-script='cd /Users/s-sugimoto/projects/batch-start-script/workspace/batch-start-script'
+alias unext-adult-tool='cd /Users/s-sugimoto/projects/unext-adult-tool/workspace/unext-adult-tool'
+alias pinpointup_tool='cd /Users/s-sugimoto/projects/pinpointup_tool/workspace/pinpointup_tool'
+alias live-tool='cd /Users/s-sugimoto/projects/live-tool/workspace/live-tool'
+alias guide-magazine-tool='cd /Users/s-sugimoto/projects/guide-magazine-tool/workspace/guide-magazine-tool'
+alias cms-contents-tool='cd /Users/s-sugimoto/projects/cms-contents-tool/workspace/cms-contents-tool'
+alias back-solr-config='cd /Users/s-sugimoto/projects/back-solr-config/workspace/back-solr-config'
+alias linear-calendar='cd /Users/s-sugimoto/projects/linear-calendar/workspace/linear-calendar'
+alias cp-tool='cd /Users/s-sugimoto/projects/cp-tool/workspace/cp-tool'
+## manage
 alias mgcms='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_cmsdb/manage.sh'
 alias mghls='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_hlsdb/manage.sh'
 alias mgwidevine='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_widevinedb/manage.sh'
@@ -58,5 +82,3 @@ alias mghlsaes='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflu
 alias mghlsis='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_hlsisdb/manage.sh'
 alias mgsmooth='sh /Users/s-sugimoto/projects/cms/workspace/CMS/cms-common/dbflute_smoothdb/manage.sh'
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
